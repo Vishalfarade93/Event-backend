@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: EVENT-SERVICE
+  datasource:
+    url: jdbc:mysql://localhost:3306/eventaggrigator
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: eventaggrigator
+    username: root
+    password: Vishal@4545
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+      
+
+      
