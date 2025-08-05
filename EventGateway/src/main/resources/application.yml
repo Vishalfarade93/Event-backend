@@ -1,5 +1,6 @@
 server:
   port: 9191
+
 spring:
   application:
     name: GATEWAY-SERVICE
@@ -7,18 +8,15 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: pgateway-module
+          uri: lb://EVENT-PAYMENT-SERVICE
+          predicates:
+            - Path=/api/payment/**
+
         - id: event-module
           uri: lb://EVENT-SERVICE
           predicates:
             - Path=/events/**
-      default-filters:
-      - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
-
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: https://dev-79462779.okta.com/oauth2/default
 
 eureka:
   client:

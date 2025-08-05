@@ -29,5 +29,6 @@ public class Event {
 	private String tags;
 	private String RegistrationLink;
 	private String description;
+	private String image;
 
 }
